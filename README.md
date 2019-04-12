@@ -1,6 +1,6 @@
 # CleanArchitectIr
 project based on Clean Architecture . <br/>
-include :<ul> Dagger <ul>RxJava <ul> MVP <ul> ButterKnife 
+include :<ul> Dagger </ul><ul>RxJava</ul> <ul> MVP</ul> <ul> ButterKnife </ul>
 
 # Api
 using aparat.com api and show my channel videos <br/>
