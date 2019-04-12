@@ -1,0 +1,15 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    def dependency = rootProject.ext.domainDependency
+
+    implementation dependency.javaxAnnotation
+    implementation dependency.javaxInject
+    implementation dependency.rxJava
+
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"

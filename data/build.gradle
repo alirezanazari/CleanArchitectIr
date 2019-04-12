@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+android {
+
+    def global = rootProject.extensions.getByName("ext")
+    compileSdkVersion global.getAt("compileSdkVersion")
+
+
+
+    defaultConfig {
+        minSdkVersion global.getAt("minSdkVersion")
+        targetSdkVersion global.getAt("targetSdkVersion")
+        versionCode global.getAt("versionCode")
+        versionName global.getAt("versionName")
+
+
+        buildConfigField "String", 'apiBaseUrl', '"' + apiBaseUrl + '"'
+        manifestPlaceholders = [apiBaseUrl: apiBaseUrl]
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+}
+
+dependencies {
+
+    def dependency = rootProject.ext.dataDependency
+    def anotherDependency = rootProject.ext.anotherDependency
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    testImplementation anotherDependency.junit
+    androidTestImplementation anotherDependency.testRunner
+    androidTestImplementation anotherDependency.espresso
+
+    annotationProcessor dependency.daggerCompiler
+    implementation dependency.dagger
+    implementation dependency.okHttp
+    implementation dependency.okHttpUrlCon
+    implementation dependency.gson
+    implementation dependency.rxJava
+    implementation dependency.rxAndroid
+    implementation dependency.javaxAnnotation
+    implementation dependency.javaxInject
+    implementation dependency.androidAnnotations
+    implementation dependency.retrofit
+    implementation dependency.retrofitRx
+    implementation dependency.retrofitRxAdapter
+
+    implementation project(':domain')
+}

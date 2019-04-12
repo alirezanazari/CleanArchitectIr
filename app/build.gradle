@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    def global = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion global.getAt("compileSdkVersion")
+    defaultConfig {
+        applicationId "iran.alirezanazari.cleanarchitect"
+        minSdkVersion global.getAt("minSdkVersion")
+        targetSdkVersion global.getAt("targetSdkVersion")
+        versionCode global.getAt("versionCode")
+        versionName global.getAt("versionName")
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+}
+
+dependencies {
+    def dependency = rootProject.ext.AppDependency
+    def anotherDependency = rootProject.ext.anotherDependency
+    implementation project(':data')
+    implementation project(':domain')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation anotherDependency.junit
+    androidTestImplementation anotherDependency.espresso
+    androidTestImplementation anotherDependency.testRunner
+    annotationProcessor dependency.butterKnifeCompiler
+    annotationProcessor dependency.daggerCompiler
+    compileOnly dependency.dagger
+    implementation dependency.dimenSdp
+    implementation dependency.dimenSsp
+    implementation dependency.glide
+    implementation dependency.butterKnife
+    implementation dependency.recyclerView
+    implementation dependency.rxJava
+    implementation dependency.rxAndroid
+    implementation dependency.javaxAnnotation
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    implementation 'androidx.cardview:cardview:1.0.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
+    implementation 'androidx.annotation:annotation:1.0.0'
+}

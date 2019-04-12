@@ -1,0 +1,106 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.2'
+        //classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://maven.google.com' }
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+
+    compileSdkVersion = 28
+    minSdkVersion = 14
+    targetSdkVersion = 28
+    versionCode = 1
+    versionName = "1.0"
+
+    //Libraries
+    appcompatVersion = '28.0.0'
+    daggerVersion = '2.22.1'
+    butterKnifeVersion = '10.1.0'
+    recyclerViewVersion = '21.0.3'
+    rxJavaVersion = '2.0.2'
+    rxAndroidVersion = '2.0.1'
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
+    gsonVersion = '2.4.0'
+    okHttpVersion = '2.5.0'
+    glideVersion = '3.7.0'
+    retrofitVerdion = '2.4.0'
+    retroRxWarthonVersion  = '1.0.0'
+    sspSdpVersion = '1.0.4'
+    androidAnnotationsVersion = '21.0.3'
+
+    AppDependency = [
+
+            dimenSdp       : "com.intuit.ssp:ssp-android:${sspSdpVersion}",
+            dimenSsp       : "com.intuit.sdp:sdp-android:${sspSdpVersion}",
+            appCompat      : "com.android.support:appcompat-v7:${appcompatVersion}",
+            dagger         : "com.google.dagger:dagger:${daggerVersion}",
+            glide          : "com.github.bumptech.glide:glide:${glideVersion}",
+            daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            butterKnife    : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            recyclerView   : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
+            rxJava         : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid         : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}"
+    ]
+
+
+
+    domainDependency = [
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxJava         : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid      : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+
+    ]
+
+
+    dataDependency = [
+            daggerCompiler    : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger            : "com.google.dagger:dagger:${daggerVersion}",
+            okHttp            : "com.squareup.okhttp:okhttp:${okHttpVersion}",
+            okHttpUrlCon      : "com.squareup.okhttp:okhttp-urlconnection:${okHttpVersion}",
+            gson              : "com.squareup.retrofit2:converter-gson:${gsonVersion}",
+            rxJava            : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid         : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject       : "javax.inject:javax.inject:${javaxInjectVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            retrofit          : "com.squareup.retrofit2:retrofit:${retrofitVerdion}",
+            retrofitRx        : "com.squareup.retrofit2:adapter-rxjava:${retrofitVerdion}",
+            retrofitRxAdapter : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${retroRxWarthonVersion}"
+
+    ]
+
+    anotherDependency = [
+            junit       : "junit:junit:4.12",
+            espresso   : "com.android.support.test.espresso:espresso-core:3.0.2",
+            testRunner  : "com.android.support.test:runner:1.0.2"
+    ]
+
+}
