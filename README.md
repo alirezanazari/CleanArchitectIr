@@ -4,4 +4,4 @@ project based on Clean Architecture . <br/><br/>
 
 # Api
 used aparat.com api and present channel videos <br/>
-<a href="aparat.com/ali_rezanazari">aparat.com/ali_rezanazari</a>
+<a href="https://www.aparat.com/ali_rezanazari">aparat.com/ali_rezanazari</a>
